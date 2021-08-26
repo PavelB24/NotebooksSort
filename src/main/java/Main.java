@@ -5,7 +5,7 @@ public class Main {
         Notebook[] notebooks = new Notebook[5000];
         fillArray(notebooks);
         toSortArray(notebooks);
-        for (Notebook notebook: notebooks) {
+        for (Notebook notebook : notebooks) {
             notebook.printInfo();
         }
 
@@ -14,30 +14,29 @@ public class Main {
     private static void toSortArray(Notebook[] notebooks) {
         int min;
         long a = System.currentTimeMillis();
-        for (int i = 0; i < notebooks.length-1 ; i++) {
-            min=i;
-            for (int j = i+1; j < notebooks.length; j++) {
-                if (notebooks[j].getPrice()!=notebooks[min].getPrice()){
-                if(notebooks[j].getPrice()<notebooks[min].getPrice()){
-                    min=j;
+        for (int i = 0; i < notebooks.length - 1; i++) {
+            min = i;
+            for (int j = i + 1; j < notebooks.length; j++) {
+                if (notebooks[j].getPrice() != notebooks[min].getPrice()) {
+                    if (notebooks[j].getPrice() < notebooks[min].getPrice()) {
+                        min = j;
 
-                }}
-                else if(notebooks[j].getMemory()!=notebooks[min].getMemory()){
-                  if (notebooks[j].getMemory()<notebooks[min].getMemory()) {
-                      min = j;
-                  }
-                }
-                else  if(notebooks[j].getManufacturer().compareTo(notebooks[min].getManufacturer())!=0) {
-                    if(notebooks[j].getManufacturer().compareTo(notebooks[min].getManufacturer())<0){
+                    }
+                } else if (notebooks[j].getMemory() != notebooks[min].getMemory()) {
+                    if (notebooks[j].getMemory() < notebooks[min].getMemory()) {
+                        min = j;
+                    }
+                } else if (notebooks[j].getManufacturer().compareTo(notebooks[min].getManufacturer()) != 0) {
+                    if (notebooks[j].getManufacturer().compareTo(notebooks[min].getManufacturer()) < 0) {
                         min = j;
                     }
                 }
             }
-            Notebook temp= notebooks[i];
-            notebooks[i]=notebooks[min];
-            notebooks[min]=temp;
+            Notebook temp = notebooks[i];
+            notebooks[i] = notebooks[min];
+            notebooks[min] = temp;
         }
-        System.out.println(System.currentTimeMillis()-a+ " время сортировки");
+        System.out.println(System.currentTimeMillis() - a + " время сортировки");
 
 
     }
